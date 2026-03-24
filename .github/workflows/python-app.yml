@@ -27,6 +27,12 @@ jobs:
       run: |
         pip install flake8
         flake8 starter/starter --max-line-length=100 --extend-ignore=W291,W292,W391,E302,E305,F401
+
+    - name: Train model
+      run: |
+        cd starter/starter
+        python train_model.py
+
     - name: Run pytest
       run: |
         pytest starter/starter/test_model.py starter/starter/test_api.py -v
